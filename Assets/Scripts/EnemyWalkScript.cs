@@ -60,8 +60,9 @@ public class EnemyWalkScript : MonoBehaviour
             agent.SetDestination(desPoint);
 
             Vector3 distanceToDesPoint = transform.position - desPoint;
+            distanceToDesPoint.y = 0;
 
-            if (distanceToDesPoint.magnitude < 1f)
+            if (distanceToDesPoint.magnitude < 3f)
             {
                 desPointSet = false;
                 lastWalkTime = Time.time;
