@@ -124,7 +124,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -151,10 +151,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  desPointMin: 4
-  desPointMax: 8
-  walkInterval: 4
-  sightRange: 6
+  desPointMin: 8
+  desPointMax: 20
+  walkInterval: 3
+  sightRange: 15
 --- !u!54 &4835559790536140867
 Rigidbody:
   m_ObjectHideFlags: 0
