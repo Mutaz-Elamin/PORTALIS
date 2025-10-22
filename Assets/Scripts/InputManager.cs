@@ -20,6 +20,8 @@ public class InputManager : MonoBehaviour
 
         onFootActions.Sprint.performed += ctx => controller.StartSprinting();
         onFootActions.Sprint.canceled += ctx => controller.StopSprinting();
+
+        onFootActions.LightAttack.performed += ctx => controller.Attack();
     }
 
     // Update is called once per frame

@@ -31,7 +31,27 @@ public class EnemyWalkScript : MonoBehaviour
 
     private Coroutine attackRoutine;
 
-    // Start is called before the first frame update
+    public float health = 50f;
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        Debug.Log($"{gameObject.name} took {amount} damage! Remaining HP: {health}");
+
+        if (health <= 0f)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log($"{gameObject.name} died!");
+        Destroy(gameObject); 
+    }
+
+
+    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();

@@ -76,4 +76,26 @@ public class PlayerController : MonoBehaviour
         speed = 5f;
         camMove.isSprinting = false;
     }
+
+    public void Attack()
+    {
+        Ray ray = new Ray(camMove.cam.transform.position, camMove.cam.transform.forward);
+        float attackRange = 2f;
+        int attackDamage = 5;
+        LayerMask enemyLayer = LayerMask.GetMask("Enemy"); 
+
+        if (Physics.Raycast(ray, out RaycastHit hit, attackRange, enemyLayer))
+        {
+            EnemyWalkScript enemy = hit.collider.GetComponent<EnemyWalkScript>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(attackDamage);
+                Debug.Log("Hit " + hit.collider.name);
+            }
+        }
+        else
+        {
+            Debug.Log("Missed attack");
+        }
+    }
 }
