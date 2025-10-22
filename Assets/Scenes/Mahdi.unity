@@ -1180,6 +1180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 597531381934556082, guid: 6b9598fe9a644f34ab08014fc19b1f99, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1489740531461652634, guid: 6b9598fe9a644f34ab08014fc19b1f99, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1247,6 +1251,10 @@ PrefabInstance:
     - target: {fileID: 6520473492417820003, guid: 6b9598fe9a644f34ab08014fc19b1f99, type: 3}
       propertyPath: playerLayer.m_Bits
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753233608687656924, guid: 6b9598fe9a644f34ab08014fc19b1f99, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

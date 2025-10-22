@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     public void Attack()
     {
         Ray ray = new Ray(camMove.cam.transform.position, camMove.cam.transform.forward);
-        float attackRange = 2f;
+        float attackRange = 5f;
         int attackDamage = 5;
         LayerMask enemyLayer = LayerMask.GetMask("Enemy"); 
 
