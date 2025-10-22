@@ -171,9 +171,6 @@ public class EnemyWalkScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player"))
-        {
-            print("hitting");
-        }
+        // Attack did not use this function
     }
 }

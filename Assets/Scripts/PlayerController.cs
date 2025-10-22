@@ -33,9 +33,8 @@ public class PlayerController : MonoBehaviour
         
         if (isMoving && isGrounded)
         {
-            float depletionRate = (speed > 5f) 
-                                ? hungerSystem.sprintDepletionRate 
-                                : hungerSystem.walkDepletionRate;
+            float depletionRate;
+            depletionRate = (speed > 5f) ? hungerSystem.sprintDepletionRate : hungerSystem.walkDepletionRate;
             
             hungerSystem.DepleteHunger(depletionRate * Time.deltaTime);
         }
