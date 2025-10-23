@@ -31,7 +31,7 @@ public class EnemyWalkScript : MonoBehaviour
 
     private Coroutine attackRoutine;
 
-    public float health = 50f;
+    public float health = 15f;
 
     public void TakeDamage(float amount)
     {

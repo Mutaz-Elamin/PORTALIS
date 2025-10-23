@@ -80,7 +80,11 @@ public class PlayerHealth : MonoBehaviour
             gameOverPanel.alpha = 1f;
             gameOverPanel.interactable = true;
             gameOverPanel.blocksRaycasts = true;
+            playerController.enabled = false;
+            playerController.GetComponent<InputManager>().enabled = false;
+
         }
+        RestartGame();
     }
     
     public void RestartGame()

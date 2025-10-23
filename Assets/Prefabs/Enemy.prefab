@@ -145,13 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbad08da9c3c90141b1e5e9d36c654ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 4206494908335297987, guid: b066e15d16b54d5489a7ae081e195d13, type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   playerLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8
   desPointMin: 8
   desPointMax: 20
   walkInterval: 3
@@ -159,6 +159,7 @@ MonoBehaviour:
   attackRange: 0.8
   attackInterval: 2
   attackActiveDuration: 0.2
+  health: 15
 --- !u!54 &9061610381677502731
 Rigidbody:
   m_ObjectHideFlags: 0
