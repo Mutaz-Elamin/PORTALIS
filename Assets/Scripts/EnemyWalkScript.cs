@@ -56,6 +56,7 @@ public class EnemyWalkScript : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         attackCollider = GetComponentInChildren<BoxCollider>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
