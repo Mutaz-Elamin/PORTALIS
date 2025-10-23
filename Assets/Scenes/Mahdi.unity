@@ -327,6 +327,7 @@ MonoBehaviour:
   interactorRange: 2
   scoreText: {fileID: 866469739}
   winText: {fileID: 1027639799}
+  gameOverPanel: {fileID: 403559912}
 --- !u!1 &313601372
 GameObject:
   m_ObjectHideFlags: 0
