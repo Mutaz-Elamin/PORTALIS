@@ -32,7 +32,7 @@ public class EnemyWalkScript : MonoBehaviour
     private Coroutine attackRoutine;
 
     public float health = 15f;
-
+    
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -59,7 +59,7 @@ public class EnemyWalkScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
+    // Determine behavior based on player's position relative to sight and attack ranges
     void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
@@ -80,7 +80,7 @@ public class EnemyWalkScript : MonoBehaviour
             Attack();
         }
     }
-
+    // Hold attack position and face player and run attack cycle
     private void Attack()
     {
         agent.SetDestination(transform.position);
@@ -94,13 +94,13 @@ public class EnemyWalkScript : MonoBehaviour
             attackRoutine = StartCoroutine(AttackCycle(attackActiveDuration, attackInterval));
         }
     }
-
+    // Chase the player by setting destination to player's position
     private void Chase()
     {
         agent.SetDestination(player.transform.position);
         StopAttackRoutine();
     }
-
+    // Walk to random destination points within specified range and interval
     public void Walk()
     {
         StopAttackRoutine();
@@ -125,7 +125,7 @@ public class EnemyWalkScript : MonoBehaviour
             }
         }
     }
-
+    // Search for a valid random destination point on the ground within specified range
     private void SearchDesPoint()
     {
         float zPos = RandRange();
@@ -144,7 +144,7 @@ public class EnemyWalkScript : MonoBehaviour
         float pos = Random.Range(desPointMin, desPointMax);
         return Random.value > 0.5f ? pos : -pos;
     }
-
+    // toggle attack collider on and off based on active duration and interval
     private IEnumerator AttackCycle(float activeDuration, float interval)
     {
         float offDuration = Mathf.Max(0f, interval - activeDuration);
@@ -174,7 +174,7 @@ public class EnemyWalkScript : MonoBehaviour
                 yield return null;
         }
     }
-
+    // Stop the attack routine and disable the attack collider
     private void StopAttackRoutine()
     {
         if (attackRoutine != null)

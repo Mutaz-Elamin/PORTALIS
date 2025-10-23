@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         
         Time.timeScale = 1f; 
     }
-
+    // Method to apply damage to the player
     public void TakeDamage(int damageAmount)
     {
         if (isDead) return;
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
     }
-    
+    // Restore health to the player
     public void Heal(int healAmount)
     {
         if (isDead) return;
@@ -53,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.value = currentHealth;
     }
 
+    // Disable player controls and show game over panel
     void Die()
     {
         isDead = true;
@@ -70,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
 
         GameOver();
     }
-
+    // show game over UI and restart the game
     void GameOver()
     {
         Time.timeScale = 0f;

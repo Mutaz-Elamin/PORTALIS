@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
     public float fovSmooth = 5f;
     private Vector3 originalPos;
 
-
+    // Initialize camera settings
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour
         cam.transform.rotation = Quaternion.identity;
         originalPos = cam.transform.localPosition;
     }
-
+    // camera look method based on input
     public void Look(Vector2 input)
     {
         float mouseX = input.x * xSensitivity * Time.deltaTime;

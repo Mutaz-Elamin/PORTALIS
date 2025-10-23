@@ -5,7 +5,7 @@ public class EnemyAttack : MonoBehaviour
     public int attackDamage = 10;
     public float attackCooldown = 1f;
     private float lastAttackTime;
-
+    // Method called when another collider stays within this trigger collider
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))

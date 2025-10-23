@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
+// Define the IInteractable interface
 interface IInteractable
 {
     void Interact();
@@ -19,7 +19,8 @@ public class Interactor : MonoBehaviour
     public TextMeshProUGUI winText;
     public CanvasGroup gameOverPanel;
     private PlayerController playerController;
-    // Start is called before the first frame update
+
+    
     void Start()
     {
         count = 0;
@@ -28,8 +29,9 @@ public class Interactor : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    
     void Update()
+    // Check for interaction input
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -47,6 +49,7 @@ public class Interactor : MonoBehaviour
             }
         }
     }
+    // Update the score text and check for win condition
     private void SetCountText()
     {
          scoreText.text = " Score : " + count.ToString();

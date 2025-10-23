@@ -41,21 +41,21 @@ public class HungerSystem : MonoBehaviour
             // Starvation damage goes here...
         }
     }
-
+    // deplete hunger by a specified amount
     public void DepleteHunger(float amount)
     {
         currentHunger -= amount;
         currentHunger = Mathf.Clamp(currentHunger, 0, maxHunger);
         UpdateHungerUI();
     }
-
+    // gain hunger by a specified amount
     public void GainHunger(float amount)
     {
         currentHunger += amount;
         currentHunger = Mathf.Clamp(currentHunger, 0, maxHunger);
         UpdateHungerUI();
     }
-
+    // update the hunger UI slider
     private void UpdateHungerUI()
     {
         if (hungerSlider != null)

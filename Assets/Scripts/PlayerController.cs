@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        // Get the CharacterController component
+
         Controller = GetComponent<CharacterController>();
         camMove = GetComponent<CameraMovement>();
         hungerSystem = GetComponent<HungerSystem>();
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Handle hunger depletion based on movement
         isGrounded = Controller.isGrounded;
         
         if (isMoving && isGrounded)
@@ -40,15 +43,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Method to move the player based on input
     public void Move(Vector2 input)
     {
+
         Vector3 moveDir = Vector3.zero;
 
         moveDir.x = input.x;
         moveDir.z = input.y;
         
         isMoving = moveDir.magnitude > 0.1f;
-
+        // apply gravity
         Controller.Move(transform.TransformDirection(moveDir) * speed * Time.deltaTime);
         playerVelocity.y += Gravity * Time.deltaTime;
         if (isGrounded && playerVelocity.y < 0) {
@@ -77,6 +82,7 @@ public class PlayerController : MonoBehaviour
         camMove.isSprinting = false;
     }
 
+    // Method to handle player attack
     public void Attack()
     {
         Ray ray = new Ray(camMove.cam.transform.position, camMove.cam.transform.forward);
