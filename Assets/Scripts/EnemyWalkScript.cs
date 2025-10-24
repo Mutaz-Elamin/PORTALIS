@@ -5,12 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyWalkScript : MonoBehaviour
 {
-    public GameObject player;
 
-    private BoxCollider attackCollider;
+    // Navmesh related fields
+    private GameObject player;
 
     private NavMeshAgent agent;
-
     public LayerMask groundLayer, playerLayer;
 
     private Vector3 desPoint;
@@ -18,21 +17,27 @@ public class EnemyWalkScript : MonoBehaviour
     public float desPointMin;
     public float desPointMax;
 
+    // Walk state related fields
     public float walkInterval;
     private float lastWalkTime = -Mathf.Infinity;
 
+    // Chase state related fields
     public float sightRange;
     private bool playerInSightRange;
+
+    // Attack state related fields
     public float attackRange;
     private bool playerInAttackRange;
-
     public float attackInterval;
     public float attackActiveDuration;
-
     private Coroutine attackRoutine;
+    private BoxCollider attackCollider;
 
+    // Health setting for the enemy
     public float health = 15f;
-    
+
+
+    // Method to apply damage to the enemy
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -44,6 +49,7 @@ public class EnemyWalkScript : MonoBehaviour
         }
     }
 
+    // Handle enemy death when health reaches zero
     private void Die()
     {
         Debug.Log($"{gameObject.name} died!");
@@ -80,6 +86,7 @@ public class EnemyWalkScript : MonoBehaviour
             Attack();
         }
     }
+
     // Hold attack position and face player and run attack cycle
     private void Attack()
     {
@@ -94,12 +101,14 @@ public class EnemyWalkScript : MonoBehaviour
             attackRoutine = StartCoroutine(AttackCycle(attackActiveDuration, attackInterval));
         }
     }
+
     // Chase the player by setting destination to player's position
     private void Chase()
     {
         agent.SetDestination(player.transform.position);
         StopAttackRoutine();
     }
+
     // Walk to random destination points within specified range and interval
     public void Walk()
     {
@@ -125,6 +134,7 @@ public class EnemyWalkScript : MonoBehaviour
             }
         }
     }
+
     // Search for a valid random destination point on the ground within specified range
     private void SearchDesPoint()
     {
@@ -139,11 +149,14 @@ public class EnemyWalkScript : MonoBehaviour
         }
     }
 
+    // function to get a random float within the specified min and max range, randomly positive or negative
     private float RandRange()
     {
         float pos = Random.Range(desPointMin, desPointMax);
         return Random.value > 0.5f ? pos : -pos;
     }
+
+
     // toggle attack collider on and off based on active duration and interval
     private IEnumerator AttackCycle(float activeDuration, float interval)
     {
@@ -174,6 +187,8 @@ public class EnemyWalkScript : MonoBehaviour
                 yield return null;
         }
     }
+
+
     // Stop the attack routine and disable the attack collider
     private void StopAttackRoutine()
     {
@@ -191,7 +206,6 @@ public class EnemyWalkScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        // Attack did not use this function
+        // Attack did not use this function as was initially intended
     }
 }
